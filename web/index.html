@@ -8,160 +8,171 @@
 <meta name="description" content="イラストレーター taroneko のポートフォリオ。Vtuber・活動者向けイラスト、MVイラスト、立ち絵、グッズイラスト、Live2D。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* VOICE: 本人のポートフォリオ。ポップで可愛く、でも作品が主役
-   IDEA: シールを貼ったギンガムチェックのスケッチブック
-   PICTURE: 本人のイラストを太いフチのステッカーとして大きく貼る
-   COLOUR and TYPE: 淡い青紫×ギンガム、ピンクのアクセント、濃い紫の文字／M PLUS Rounded 1c + Zen Kaku Gothic New
-   LAYOUT: タブで切り替える5ページ（Top / Works / Service / About / Contact）、URLの#で直接開ける */
+/* VOICE: 上品でクラシック、少しレトロ。作品が主役で、文字と飾りは控えめ
+   IDEA: 洋菓子店のメニューカードや便箋のような、レースの縁取りがある紙もの
+   PICTURE: 作品をクリームの台紙と細い額縁に収めて飾る
+   COLOUR and TYPE: クリーム地、ボルドー、くすんだ水色の細ストライプ／Cormorant Garamond + Shippori Mincho、本文 Zen Kaku Gothic New
+   LAYOUT: タブで切り替える5ページ（Top / 作品 / ご依頼 / プロフィール / お問い合わせ）、URLの#で直接開ける */
 :root{color-scheme:light dark;
---bg:light-dark(#fbfaff,#17142e);--panel:light-dark(#ffffff,#221e40);
---lav:light-dark(#a8b6f4,#3a3a78);--lav2:light-dark(#c9d2fa,#2c2b5c);--field:light-dark(#e6eafd,#2a2752);
---pink:#ff6fae;--pinkS:light-dark(#ffe1ee,#4a2346);--ink:light-dark(#2b2552,#efeaff);--sub:light-dark(#5d5788,#bdb6e6);
---line:light-dark(#2b2552,#efeaff);--shadow:light-dark(#2b2552,#0b0920)}
+--bg:light-dark(#f6efe3,#241a1c);--paper:light-dark(#fffaf1,#2e2225);--ink:light-dark(#4a3632,#f1e6da);--sub:light-dark(#7d6660,#c9b8ac);
+--wine:light-dark(#8c2a35,#e9a3a9);--wineS:light-dark(#f3e1dc,#3d2a2d);--blue:light-dark(#b9cbe0,#3b4a5e);--blueS:light-dark(#e3ebf4,#2c3442);
+--rule:light-dark(rgb(140 42 53/.35),rgb(233 163 169/.35));--grid:light-dark(rgb(140 42 53/.06),rgb(241 230 218/.05))}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 html{scroll-padding-top:80px}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 "Zen Kaku Gothic New",system-ui,sans-serif;overflow-x:clip}
-h1,h2,h3,.r{font-family:"M PLUS Rounded 1c","Zen Kaku Gothic New",sans-serif;font-weight:800;line-height:1.2;margin:0;text-wrap:balance}
-h2{font-size:clamp(28px,4vw,44px)}h3{font-size:19px}
+body{margin:0;background:var(--bg);color:var(--ink);font:15.5px/1.95 "Zen Kaku Gothic New",system-ui,sans-serif;overflow-x:clip;
+background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
+h1,h2,h3{font-family:"Cormorant Garamond","Shippori Mincho",serif;font-weight:600;line-height:1.2;margin:0;text-wrap:balance;color:var(--wine)}
+.jp{font-family:"Shippori Mincho",serif}
+h2{font-size:clamp(30px,4vw,44px)}h3{font-size:19px;font-family:"Shippori Mincho",serif}
+.en{display:block;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;font-size:19px;color:var(--sub);margin-bottom:2px}
 p{margin:0 0 1em}a{color:inherit}
 img{display:block;max-width:100%;height:auto}
-.wrap{max-width:1180px;margin:0 auto}
-.band{padding:clamp(28px,4vw,60px) max(5vw,16px)}
-.gingham{background-color:var(--lav);background-image:linear-gradient(90deg,rgb(255 255 255/.28) 50%,transparent 50%),linear-gradient(rgb(255 255 255/.28) 50%,transparent 50%);background-size:28px 28px}
+.wrap{max-width:1140px;margin:0 auto}
+.band{padding:clamp(30px,4.5vw,64px) max(5vw,16px)}
+/* patterns */
+.stripe{background-color:var(--blueS);background-image:repeating-linear-gradient(90deg,var(--blue) 0 14px,transparent 14px 34px)}
+.quilt{background-color:var(--blueS);background-image:linear-gradient(45deg,transparent 48.5%,rgb(255 255 255/.7) 49.5% 50.5%,transparent 51.5%),linear-gradient(-45deg,transparent 48.5%,rgb(255 255 255/.7) 49.5% 50.5%,transparent 51.5%);background-size:46px 46px}
+:root[data-theme=dark] .quilt{background-image:linear-gradient(45deg,transparent 48.5%,rgb(255 255 255/.08) 49.5% 50.5%,transparent 51.5%),linear-gradient(-45deg,transparent 48.5%,rgb(255 255 255/.08) 49.5% 50.5%,transparent 51.5%)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .quilt{background-image:linear-gradient(45deg,transparent 48.5%,rgb(255 255 255/.08) 49.5% 50.5%,transparent 51.5%),linear-gradient(-45deg,transparent 48.5%,rgb(255 255 255/.08) 49.5% 50.5%,transparent 51.5%)}}
+.scal{position:relative}
+.scal::after{content:"";position:absolute;left:0;right:0;bottom:-11px;height:12px;background:radial-gradient(circle at 11px 0,var(--paper) 10.5px,transparent 11px) 0 0/22px 12px repeat-x;z-index:2}
 /* nav */
-nav{position:sticky;top:0;z-index:20;background:var(--lav);border-bottom:3px dotted rgb(255 255 255/.8)}
-nav .wrap{display:flex;align-items:center;gap:6px;padding:8px max(5vw,16px);overflow-x:auto;scrollbar-width:none}
-nav .logo{font-family:"M PLUS Rounded 1c";font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin-right:auto;flex:none;padding-right:12px}
-nav .logo span{color:var(--pink)}
-nav a.t{flex:none;text-decoration:none;color:var(--ink);font-weight:700;font-size:15px;padding:10px 14px;border-radius:99px;min-height:44px;display:inline-flex;align-items:center}
-nav a.t[aria-current=page]{background:var(--panel);box-shadow:0 2px 0 var(--shadow)}
-a:focus-visible,button:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+nav{position:sticky;top:0;z-index:20;background:var(--paper)}
+nav .wrap{display:flex;align-items:center;gap:2px;padding:6px max(5vw,16px);overflow-x:auto;scrollbar-width:none}
+nav .logo{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:26px;color:var(--wine);text-decoration:none;margin-right:auto;flex:none;padding-right:14px;line-height:1}
+nav a.t{flex:none;text-decoration:none;color:var(--ink);font-size:14.5px;padding:10px 12px;min-height:44px;display:inline-flex;align-items:center;border-bottom:1px solid transparent}
+nav a.t[aria-current=page]{color:var(--wine);border-bottom-color:var(--wine)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
 /* pages */
-.page{display:none}.page.on{display:block;animation:pop .35s ease-out}
-@keyframes pop{from{opacity:0;transform:translateY(8px)}}
+.page{display:none}.page.on{display:block;animation:fade .4s ease-out}
+@keyframes fade{from{opacity:0}}
 @media(prefers-reduced-motion:reduce){.page.on{animation:none}}
-/* sticker */
-.st{display:block;background:#fff;padding:8px;border:3px solid #2b2552;border-radius:22px;box-shadow:6px 6px 0 var(--shadow)}
-.st img{border-radius:14px;width:100%}
+/* frame */
+.st{display:block;background:var(--paper);padding:10px;border:1px solid var(--rule);outline:1px solid var(--rule);outline-offset:-6px;box-shadow:0 6px 18px rgb(74 54 50/.12)}
+.st img{width:100%}
 /* hero */
-.hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(20px,4vw,56px);align-items:center}
-.hero .art{position:relative;padding:10px 10px 40px}
-.hero .art .main{transform:rotate(2deg)}
-.hero .art .sub{position:absolute;left:-14px;bottom:-6px;width:42%;transform:rotate(-6deg)}
-.name{font-size:clamp(52px,8vw,96px);line-height:1;color:#fff;-webkit-text-stroke:3px #2b2552;paint-order:stroke fill;text-shadow:5px 5px 0 var(--pink);letter-spacing:.01em}
-.role{display:inline-block;background:#fff;color:#2b2552;border:3px solid #2b2552;border-radius:99px;padding:4px 18px;font-size:18px;margin:16px 0 18px}
-.hero .lead{font-size:17px;color:#2b2552;max-width:30em}
-:root[data-theme=dark] .hero .lead{color:#efeaff}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .hero .lead{color:#efeaff}}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 22px;padding:0;list-style:none}
-.chips li{background:var(--panel);border-radius:99px;padding:3px 14px;font-size:14px;font-weight:700}
-.btns{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:10px 22px;border-radius:99px;border:3px solid #2b2552;background:var(--pink);color:#fff;font-family:"M PLUS Rounded 1c";font-weight:800;text-decoration:none;box-shadow:4px 4px 0 #2b2552;cursor:pointer;font-size:16px}
-.btn.w{background:#fff;color:#2b2552}
-.btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 #2b2552}
-/* pick row */
-.picks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,64px);align-items:center}
+.htext{background:var(--paper);padding:clamp(24px,4vw,44px) clamp(20px,3vw,36px);text-align:center;border:1px solid var(--rule);outline:1px solid var(--rule);outline-offset:-8px}
+.name{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:clamp(52px,7vw,82px);line-height:1;color:var(--wine)}
+.role{font-family:"Shippori Mincho",serif;font-size:16px;letter-spacing:.2em;margin:10px 0 0;color:var(--ink)}
+.orn{display:block;width:150px;height:16px;margin:16px auto;color:var(--wine)}
+.htext .lead{font-size:15px;color:var(--ink);text-align:left;margin:0 0 20px}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 18px;margin:0 0 22px;padding:0;list-style:none;font-family:"Shippori Mincho",serif;font-size:13.5px;color:var(--sub)}
+.btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:8px 24px;border:1px solid var(--wine);background:var(--wine);color:var(--paper);font-family:"Shippori Mincho",serif;font-weight:600;font-size:15px;text-decoration:none;cursor:pointer;letter-spacing:.06em;transition:background .2s,color .2s}
+.btn.w{background:transparent;color:var(--wine)}
+.btn:hover{background:var(--paper);color:var(--wine)}.btn.w:hover{background:var(--wine);color:var(--paper)}
+.hero .art{position:relative}
+.hero .art .sub{position:absolute;right:-10px;bottom:-26px;width:38%;transform:rotate(3deg)}
+/* page heads */
+.ph{text-align:center}
+.ph .lead{margin:12px auto 0;max-width:36em;color:var(--ink)}
+.ph .inner{display:inline-block;background:var(--paper);padding:22px clamp(22px,4vw,48px);border:1px solid var(--rule);outline:1px solid var(--rule);outline-offset:-7px;max-width:100%}
+/* picks */
+.sec-h{text-align:center;margin-bottom:28px}
+.sec-h p{margin:6px 0 0;color:var(--sub)}
+.picks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
 .picks button{all:unset;cursor:pointer;display:block}
-.picks .st{transition:transform .2s}.picks button:nth-child(odd) .st{transform:rotate(-2deg)}.picks button:nth-child(even) .st{transform:rotate(2deg)}
-.picks button:hover .st{transform:rotate(0) scale(1.03)}
-.picks img{aspect-ratio:1;object-fit:cover}
-.sec-h{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px;margin-bottom:22px}
-.sec-h p{margin:0;color:var(--sub)}
+.picks .st{transition:transform .25s}.picks button:hover .st{transform:translateY(-4px)}
+.picks img{aspect-ratio:4/5;object-fit:cover}
 /* works */
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px}
-.filters button{min-height:44px;padding:6px 16px;border-radius:99px;border:2px solid var(--line);background:var(--panel);color:var(--ink);font:700 15px "Zen Kaku Gothic New",sans-serif;cursor:pointer}
-.filters button[aria-pressed=true]{background:var(--pink);border-color:var(--pink);color:#fff}
-.grid{columns:3 280px;column-gap:20px}
-.item{break-inside:avoid;margin:0 0 20px;display:block;width:100%;text-align:left;border:0;padding:0;background:none;color:inherit;font:inherit;cursor:zoom-in}
-.item .st{padding:6px;border-width:2px;box-shadow:4px 4px 0 var(--shadow);transition:transform .2s}
+.filters{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 6px;margin:0 0 30px}
+.filters button{min-height:44px;padding:6px 14px;border:0;border-bottom:1px solid transparent;background:none;color:var(--ink);font:500 15px "Shippori Mincho",serif;cursor:pointer}
+.filters button[aria-pressed=true]{color:var(--wine);border-bottom-color:var(--wine)}
+.grid{columns:3 280px;column-gap:22px}
+.item{break-inside:avoid;margin:0 0 24px;display:block;width:100%;text-align:center;border:0;padding:0;background:none;color:inherit;font:inherit;cursor:zoom-in}
+.item .st{padding:8px;transition:transform .25s}
 .item:hover .st{transform:translateY(-3px)}
-.item .st img{border-radius:12px;background:#f3f1fb}
-.item .cap{display:block;font-size:14px;color:var(--sub);padding:8px 4px 0;line-height:1.5}
-.note{font-size:14px;color:var(--sub)}
+.item .cap{display:block;font-family:"Shippori Mincho",serif;font-size:13.5px;color:var(--sub);padding:10px 4px 0;line-height:1.6}
+.note{font-size:13.5px;color:var(--sub);text-align:center}
 /* service */
-.svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.card{background:var(--panel);border:2px solid var(--line);border-radius:22px;padding:22px;box-shadow:5px 5px 0 var(--lav)}
-.card h3{margin-bottom:8px}.card p{margin:0;color:var(--sub);font-size:15px}
-.card .ic{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:14px;margin-bottom:14px;border:2px solid var(--line);background:#fff}
-.terms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:26px}
-.big{font-family:"M PLUS Rounded 1c";font-weight:800;font-size:clamp(34px,5vw,48px);line-height:1.1;color:var(--pink);white-space:nowrap}
-.big small{font-size:18px;color:var(--ink)}
-.terms .card{box-shadow:5px 5px 0 var(--pink);background:var(--pinkS)}
+.svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.card{background:var(--paper);border:1px solid var(--rule);outline:1px solid var(--rule);outline-offset:-7px;padding:24px}
+.card h3{margin-bottom:6px}.card p{margin:0;color:var(--sub);font-size:14.5px}
+.card .ic{width:100%;aspect-ratio:16/10;object-fit:cover;margin-bottom:16px}
+.terms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:28px}
+.terms .card{text-align:center;background:var(--wineS)}
 .terms .card p{color:var(--ink)}
+.big{font-family:"Cormorant Garamond","Shippori Mincho",serif;font-weight:600;font-size:clamp(36px,5vw,50px);line-height:1.15;color:var(--wine);white-space:nowrap;margin:4px 0 8px}
+.big small{font-size:20px}
 /* about */
-.about{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(22px,4vw,56px);align-items:start}
-.about .st{transform:rotate(-2deg)}
+.about{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(24px,4vw,56px);align-items:start}
 .list{list-style:none;padding:0;margin:0 0 1em}
-.list li{padding:10px 0 10px 28px;border-bottom:2px dotted var(--lav);position:relative}
-.list li::before{content:"";position:absolute;left:4px;top:19px;width:12px;height:12px;border-radius:50%;background:var(--pink)}
-.about h3{margin:28px 0 8px}.about h3:first-child{margin-top:0}
+.list li{padding:10px 0 10px 24px;border-bottom:1px dotted var(--rule);position:relative}
+.list li::before{content:"";position:absolute;left:4px;top:21px;width:7px;height:7px;background:var(--wine);transform:rotate(45deg)}
+.about h3{margin:30px 0 6px}.about h3:first-child{margin-top:0}
+.about .name{font-size:44px}
 /* contact */
-.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
-.contact .card a.btn{margin-top:14px}
-.mail{font-family:"M PLUS Rounded 1c";font-weight:800;font-size:clamp(18px,2.4vw,22px);overflow-wrap:anywhere;margin:6px 0 0}
-.copy{margin-top:12px;min-height:44px;padding:6px 16px;border-radius:99px;border:2px solid var(--line);background:var(--panel);color:var(--ink);font:700 14px "Zen Kaku Gothic New",sans-serif;cursor:pointer}
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}
+.contact .card{text-align:center}
+.contact .card .btn{margin-top:16px}
+.mail{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(19px,2.4vw,23px);overflow-wrap:anywhere;margin:8px 0 0;color:var(--wine)}
+.copy{margin-top:12px;min-height:44px;padding:6px 18px;border:1px solid var(--rule);background:transparent;color:var(--ink);font:500 14px "Shippori Mincho",serif;cursor:pointer}
 /* pager */
-.pager{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px max(5vw,16px) 40px;max-width:1180px;margin:0 auto}
-.pager .btn{background:var(--lav);color:var(--ink);border-color:var(--line);box-shadow:4px 4px 0 var(--shadow)}
+.pager{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px max(5vw,16px) 40px;max-width:1140px;margin:0 auto}
+.pager .btn{background:transparent;color:var(--wine);min-width:110px}
+.pager .btn:hover{background:var(--wine);color:var(--paper)}
 .pager .btn[hidden]{display:inline-flex;visibility:hidden}
-.pager span{color:var(--sub);font-size:14px}
-footer{text-align:center;font-size:13px;color:var(--sub);padding:0 16px 28px}
+.pager span{color:var(--sub);font-family:"Cormorant Garamond",serif;font-size:18px}
+footer{text-align:center;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:16px;color:var(--sub);padding:0 16px 30px}
 /* lightbox */
-#lb{position:fixed;inset:0;z-index:50;background:rgb(23 20 46/.86);display:none;place-items:center;padding:56px 12px 20px}
+#lb{position:fixed;inset:0;z-index:50;background:rgb(36 26 28/.9);display:none;place-items:center;padding:56px 12px 20px}
 #lb.on{display:grid}
 #lb figure{margin:0;max-width:min(1100px,100%);text-align:center}
-#lb img{max-height:calc(100dvh - 140px);width:auto;margin:0 auto;border-radius:14px;border:4px solid #fff;background:#fff}
-#lb figcaption{color:#fff;margin-top:10px;font-size:15px}
-#lb figcaption a{color:#ffd0e5}
-#lb button{position:absolute;width:48px;height:48px;border-radius:50%;border:3px solid #2b2552;background:#fff;color:#2b2552;font:800 22px "M PLUS Rounded 1c";cursor:pointer}
+#lb img{max-height:calc(100dvh - 140px);width:auto;margin:0 auto;border:8px solid #fffaf1;background:#fffaf1}
+#lb figcaption{color:#f1e6da;margin-top:10px;font-family:"Shippori Mincho",serif;font-size:15px}
+#lb figcaption a{color:#f3c1c6}
+#lb button{position:absolute;width:46px;height:46px;border-radius:50%;border:1px solid #fffaf1;background:rgb(255 250 241/.12);color:#fffaf1;font:500 24px "Cormorant Garamond",serif;cursor:pointer}
 #lb .x{top:10px;right:12px}#lb .pv{left:12px;top:50%}#lb .nx{right:12px;top:50%}
 @media(max-width:900px){.svc{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){
 .hero,.about,.contact,.terms{grid-template-columns:minmax(0,1fr)}
-.hero .art{order:-1}.picks{grid-template-columns:repeat(2,minmax(0,1fr))}
+.hero .art{order:-1;margin-bottom:22px}.picks{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .svc{grid-template-columns:minmax(0,1fr)}
-.grid{columns:2;column-gap:12px}.item{margin-bottom:14px}
-.about .st{max-width:340px}
+.grid{columns:2;column-gap:12px}.item{margin-bottom:16px}.item .st{padding:5px}
+.about>.st{max-width:320px;margin:0 auto}
 #lb .pv,#lb .nx{top:auto;bottom:14px}
 }
 </style>
 </head>
 <body>
-<nav aria-label="ページ"><div class="wrap">
-<a class="logo" href="#top">taro<span>neko</span></a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="orn" viewBox="0 0 150 16"><path d="M0 8H58M92 8H150" stroke="currentColor" stroke-width="1"/><path d="M75 2 81 8 75 14 69 8Z" fill="currentColor"/><circle cx="63" cy="8" r="1.8" fill="currentColor"/><circle cx="87" cy="8" r="1.8" fill="currentColor"/></symbol></svg>
+<nav class="scal" aria-label="ページ"><div class="wrap">
+<a class="logo" href="#top">taroneko</a>
 <a class="t" href="#top">Top</a><a class="t" href="#works">作品</a><a class="t" href="#service">ご依頼</a><a class="t" href="#about">プロフィール</a><a class="t" href="#contact">お問い合わせ</a>
 </div></nav>
 
 <main>
 <section class="page" id="p-top" data-p="top">
-<div class="band gingham"><div class="wrap hero">
-<div>
+<div class="band stripe"><div class="wrap hero">
+<div class="htext">
 <h1 class="name">taroneko</h1>
-<div class="role r">イラストレーター</div>
-<p class="lead">可愛い女の子・かっこいい男の子のイラストが得意です。Vtuber・活動者の方を中心に、活動用イラスト、MVイラスト、グッズ用イラスト、Live2Dまで制作しています。</p>
+<p class="role">イラストレーター</p>
+<svg class="orn" aria-hidden="true"><use href="#orn"/></svg>
+<p class="lead">可愛い女の子・かっこいい男の子のイラストを描いています。Vtuber・活動者の方を中心に、活動用イラストやMVイラスト、グッズ用イラスト、Live2Dまで制作しています。</p>
 <ul class="chips"><li>一枚絵</li><li>立ち絵</li><li>MVイラスト</li><li>キャラクターデザイン</li><li>グッズ</li><li>Live2D</li></ul>
 <div class="btns"><a class="btn" href="#works">作品を見る</a><a class="btn w" href="#service">ご依頼について</a></div>
 </div>
 <div class="art">
-<div class="st main"><img src="img/cover.webp" width="1400" height="990" alt="taronekoのイラスト：配信機材に囲まれた女の子"></div>
+<div class="st"><img src="img/orig3.webp" width="1400" height="1240" alt="taronekoのオリジナルイラスト：赤ずきん風の女の子"></div>
 <div class="st sub"><img src="img/mascot.webp" width="1400" height="788" alt="パペットがモチーフのオリジナルキャラクター"></div>
 </div>
 </div></div>
 <div class="band"><div class="wrap">
-<div class="sec-h"><h2>ピックアップ</h2><p>くっきりした線と色で、ポップで可愛く。</p></div>
+<div class="sec-h"><h2><span class="en">Selected works</span><span class="jp">ピックアップ</span></h2></div>
 <div class="picks" id="picks"></div>
 </div></div>
 </section>
 
 <section class="page" id="p-works" data-p="works">
-<div class="band gingham"><div class="wrap">
-<h2>作品</h2>
-<p class="lead" style="margin:12px 0 0;max-width:40em">ご依頼の雰囲気に合わせて絵柄を描き分けています。陰影や質感を重視したタッチと、アウトライン太めのポップなタッチ（自主制作はこちら）があります。</p>
-</div></div>
-<div class="band" style="padding-top:8px"><div class="wrap">
+<div class="band quilt ph"><div class="wrap"><div class="inner">
+<h2><span class="en">Works</span><span class="jp">作品</span></h2>
+<p class="lead">ご依頼の雰囲気に合わせて絵柄を描き分けています。陰影や質感を重視したタッチと、アウトライン太めのタッチ（自主制作はこちら）があります。</p>
+</div></div></div>
+<div class="band"><div class="wrap">
 <div class="filters" id="filters" role="group" aria-label="カテゴリで絞り込む"></div>
 <div class="grid" id="grid"></div>
 <p class="note">画像をタップすると大きく見られます。ご依頼作品は、各ご依頼者様の権利を尊重して掲載しています。</p>
@@ -169,28 +180,29 @@ footer{text-align:center;font-size:13px;color:var(--sub);padding:0 16px 28px}
 </section>
 
 <section class="page" id="p-service" data-p="service">
-<div class="band gingham"><div class="wrap">
-<h2>ご依頼について</h2>
-<p class="lead" style="margin:12px 0 0;max-width:40em">動画サムネイルや活動用のイラストから、CDジャケット、グッズ、Vtuberモデルまで。まずはお気軽にご相談ください。</p>
-</div></div>
+<div class="band quilt ph"><div class="wrap"><div class="inner">
+<h2><span class="en">Commission</span><span class="jp">ご依頼について</span></h2>
+<p class="lead">動画サムネイルや活動用のイラストから、CDジャケット、グッズ、Vtuberモデルまで。まずはお気軽にご相談ください。</p>
+</div></div></div>
 <div class="band"><div class="wrap">
 <div class="svc" id="svc"></div>
 <div class="terms">
 <div class="card"><h3>金額の目安</h3><div class="big">15,000円<small>〜</small></div><p>ご依頼内容によって金額は変わります。お見積りの際は、内容の詳細を一度ご連絡ください。</p></div>
 <div class="card"><h3>納期</h3><div class="big">約15日<small>〜</small></div><p>やり取りの期間も含め、制作開始日から納品まで最短でも約15日ほどいただいています。スケジュールは一度ご相談ください。</p></div>
 </div>
-<div class="btns" style="margin-top:28px"><a class="btn" href="#contact">ご依頼・ご相談はこちら</a></div>
+<div class="btns" style="margin-top:30px"><a class="btn" href="#contact">ご依頼・ご相談はこちら</a></div>
 </div></div>
 </section>
 
 <section class="page" id="p-about" data-p="about">
-<div class="band gingham"><div class="wrap"><h2>プロフィール</h2></div></div>
+<div class="band quilt ph"><div class="wrap"><div class="inner"><h2><span class="en">Profile</span><span class="jp">プロフィール</span></h2></div></div></div>
 <div class="band"><div class="wrap about">
 <div class="st"><img src="img/orig4.webp" width="908" height="908" alt="パペットのキャラクターが窓辺のソファにいるイラスト"></div>
 <div>
-<h3>taroneko</h3>
+<div class="name">taroneko</div>
+<svg class="orn" style="margin:12px 0 18px" aria-hidden="true"><use href="#orn"/></svg>
 <p>普段はVtuber・活動者の方々を中心に、ココナラでご依頼を受け付けています。可愛い女の子・かっこいい男の子のイラストが得意です。動画サムネイル・活動用イラスト、CDジャケットやグッズ用のイラストも制作しています。</p>
-<p>個性や感性を大切にし、自分に正直でいたい気持ちをテーマに制作しています。可愛らしくポップな雰囲気で統一できるよう、くっきりとした線画と色味を心がけています。</p>
+<p>個性や感性を大切にし、自分に正直でいたい気持ちをテーマに制作しています。くっきりとした線画と色味で、イラスト全体の雰囲気をそろえることを心がけています。</p>
 <h3>主な実績</h3>
 <ul class="list">
 <li>方位かなめ様：歌ってみた動画イラスト「トウキョウ・シャンディ・ランデヴ」</li>
@@ -207,10 +219,10 @@ footer{text-align:center;font-size:13px;color:var(--sub);padding:0 16px 28px}
 </section>
 
 <section class="page" id="p-contact" data-p="contact">
-<div class="band gingham"><div class="wrap">
-<h2>お問い合わせ</h2>
-<p class="lead" style="margin:12px 0 0;max-width:40em">ご依頼・ご相談は、ココナラまたはメールでどうぞ。用途・枚数・ご希望の納期をお知らせいただけるとスムーズです。</p>
-</div></div>
+<div class="band quilt ph"><div class="wrap"><div class="inner">
+<h2><span class="en">Contact</span><span class="jp">お問い合わせ</span></h2>
+<p class="lead">ご依頼・ご相談は、ココナラまたはメールでどうぞ。用途・枚数・ご希望の納期をお知らせいただけるとスムーズです。</p>
+</div></div></div>
 <div class="band"><div class="wrap contact">
 <div class="card"><h3>ココナラから依頼する</h3><p>出品中のサービスからご依頼いただけます。</p><a class="btn" href="https://coconala.com/users/1935263">ココナラを開く</a></div>
 <div class="card"><h3>メールで相談する</h3><p class="mail" id="mail">ntorawk.0405@gmail.com</p><button class="copy" id="copy" type="button">アドレスをコピー</button></div>
@@ -236,7 +248,7 @@ const KM='https://www.youtube.com/watch?v=oCNxNFQYdyw';
 const L2D='https://youtube.com/shorts/WqG19s9AaiI';
 const CATS=[['all','すべて'],['orig','オリジナル'],['mv','MV'],['one','一枚絵'],['chr','立ち絵・キャラデザ'],['gds','グッズ・SD'],['l2d','Live2D']];
 const W=[
-['orig1','orig',870,744,'オリジナルイラスト'],['orig2','orig',1160,992,'オリジナルイラスト'],['orig3','orig',1400,1240,'オリジナルイラスト'],
+['cover','orig',1400,990,'オリジナルイラスト'],['orig1','orig',870,744,'オリジナルイラスト'],['orig2','orig',1160,992,'オリジナルイラスト'],['orig3','orig',1400,1240,'オリジナルイラスト'],
 ['mv3','mv',1344,756,'方位かなめ様 歌ってみた「トウキョウ・シャンディ・ランデヴ」',KM],['mv4','mv',960,540,'方位かなめ様 歌ってみたイラスト',KM],['mv5','mv',1152,648,'方位かなめ様 歌ってみたイラスト',KM],
 ['mv1','mv',1152,648,'MVイラスト'],['mv2','mv',1152,648,'MVイラスト'],
 ['one1','one',1000,1400,'一枚イラスト'],['one2','one',709,1049,'一枚イラスト'],['one3','one',1400,981,'一枚イラスト'],['one4','one',1034,1351,'一枚イラスト'],['one5','one',1400,788,'一枚イラスト'],['one6','one',869,1228,'一枚イラスト'],['one7','one',1152,648,'一枚イラスト'],['one8','one',1228,869,'一枚イラスト'],['one9','one',1132,921,'一枚イラスト'],
@@ -254,7 +266,7 @@ for(const b of $('#filters').children)b.setAttribute('aria-pressed',b.dataset.c=
 $('#filters').innerHTML=CATS.map(([c,n])=>`<button type="button" data-c="${c}">${n}</button>`).join('');
 $('#filters').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;cat=b.dataset.c;drawGrid()});
 drawGrid();
-const PICK=['orig3','mv3','one2','chr2'].map(k=>W.findIndex(x=>x.k===k));
+const PICK=['one1','cover','one8','chr1'].map(k=>W.findIndex(x=>x.k===k));
 $('#picks').innerHTML=PICK.map(i=>`<button type="button" data-i="${i}" aria-label="${W[i].cap}を拡大"><span class="st"><img src="img/${W[i].k}.webp" width="${W[i].w}" height="${W[i].h}" alt="${W[i].cap}"></span></button>`).join('');
 const SVC=[['one1','一枚絵イラスト','背景と人物の統一感を大切に、イラスト全体のまとまりを重視しています。'],
 ['chr3','立ち絵制作','キャラクターの魅力が伝わる構図で、用途ごとの使いやすさも考えて制作します。'],
