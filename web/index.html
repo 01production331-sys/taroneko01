@@ -86,12 +86,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--wine);outline-offse
 .hero .htext{max-width:640px}
 #about,#service{scroll-margin-top:16px}
 @media(max-width:700px){
-  html{scroll-padding-top:68px;scroll-padding-bottom:calc(56px + env(safe-area-inset-bottom))}
-  body{padding-bottom:calc(56px + env(safe-area-inset-bottom))}
+  html{scroll-padding-top:68px;scroll-padding-bottom:calc(78px + env(safe-area-inset-bottom))}
+  body{padding-bottom:calc(78px + env(safe-area-inset-bottom))}
   nav .wrap{justify-content:center;overflow:visible}
   nav .logo{margin:0;padding:8px 0;text-align:center}
-  .page-tabs{position:fixed;inset:auto 0 0;display:grid;grid-template-columns:.7fr 1.15fr 1.25fr 1.4fr;padding:4px 6px calc(4px + env(safe-area-inset-bottom));border-top:1px solid var(--wine);background:var(--paper)}
-  nav a.t{justify-content:center;padding:6px 2px;font-size:clamp(10px,3.1vw,13px);text-align:center}
+  .page-tabs{position:fixed;inset:auto 0 0;display:grid;grid-template-columns:.7fr 1.15fr 1.25fr 1.4fr;padding:4px 6px calc(16px + env(safe-area-inset-bottom));border-top:1px solid var(--wine);background:var(--paper)}
+  nav a.t{justify-content:center;min-height:52px;padding:6px 2px;font-size:clamp(10px,3.1vw,13px);text-align:center}
 }
 .sec-h{text-align:center;margin-bottom:28px}
 .sec-h p{margin:6px 0 0;color:var(--sub)}
@@ -132,6 +132,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--wine);outline-offse
 .contact .card :is(.btn,.copy){align-self:flex-start}
 .contact .card p{flex:1}
 .contact .card .btn{margin-top:16px}
+.mail-actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:16px}
+.contact .mail-actions .btn{margin-top:0}
 .mail{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(19px,2.4vw,23px);overflow-wrap:anywhere;margin:8px 0 0;color:var(--wine)}
 .copy{margin-top:12px;min-height:44px;padding:6px 18px;border:1px solid var(--rule);background:transparent;color:var(--ink);font:500 14px "Shippori Mincho",serif;cursor:pointer}
 /* pager */
@@ -247,7 +249,7 @@ footer{text-align:center;font-family:"Cormorant Garamond",serif;font-style:itali
 </div></div></div>
 <div class="band"><div class="wrap contact">
 <div class="card"><h3>ココナラから依頼する</h3><p>出品中のサービスからご依頼いただけます。</p><a class="btn" href="https://coconala.com/users/1935263">ココナラを開く</a></div>
-<div class="card"><h3>メールで相談する</h3><p class="mail" id="mail">ntorawk.0405@gmail.com</p><button class="copy" id="copy" type="button">アドレスをコピー</button></div>
+<div class="card"><h3>メールで相談する</h3><p class="mail" id="mail">ntorawk.0405@gmail.com</p><div class="mail-actions"><a class="btn" href="mailto:ntorawk.0405@gmail.com">メールを開く</a><button class="copy" id="copy" type="button">アドレスをコピー</button></div></div>
 <div class="card"><h3>オリジナルキャラクター</h3><p>パペットがモチーフのキャラクターを更新しています。</p><a class="btn w" href="https://charaforio.com/ja/user/taroneko_nosuke">キャラフォリオを見る</a></div>
 <div class="card"><h3>Live2D</h3><p>Live2Dモデルは、nizimaのプロフィールからご覧いただけます。</p><a class="btn w" href="https://nizima.com/Profile/26987">nizimaで見る</a></div>
 </div></div>
