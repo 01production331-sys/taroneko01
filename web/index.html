@@ -259,6 +259,8 @@ footer{text-align:center;font-family:"Cormorant Garamond",serif;font-style:itali
 const KM='https://www.youtube.com/watch?v=oCNxNFQYdyw';
 const L2D='https://youtube.com/shorts/WqG19s9AaiI';
 const CATS=[['orig','オリジナル','orig3'],['mv','MV','mv3'],['one','一枚絵','one1'],['chr','立ち絵・キャラデザ','chr3'],['gds','グッズ・SD','gds3'],['l2d','Live2D','l2d1']];
+const POS={one1:'50% 8%',cover:'25% 50%',one8:'40% 45%',chr1:'50% 0%',chr3:'50% 6%',chr8:'50% 2%',l2d1:'50% 16%',mv3:'72% 50%',chr10:'50% 40%'};
+const op=k=>POS[k]?` style="object-position:${POS[k]}"`:'';
 const W=[
 ['cover','orig',1400,990,'オリジナルイラスト'],['orig1','orig',870,744,'オリジナルイラスト'],['orig2','orig',1160,992,'オリジナルイラスト'],['orig3','orig',1400,1240,'オリジナルイラスト'],
 ['mv3','mv',1344,756,'方位かなめ様 歌ってみた「トウキョウ・シャンディ・ランデヴ」',KM],['mv4','mv',960,540,'方位かなめ様 歌ってみたイラスト',KM],['mv5','mv',1152,648,'方位かなめ様 歌ってみたイラスト',KM],
@@ -283,8 +285,6 @@ $('#filters').addEventListener('click',e=>{
   $('#category-works').hidden=!cat;
   for(const filter of $('#filters').children)filter.setAttribute('aria-pressed',filter.dataset.c===cat);
 });
-const POS={one1:'50% 8%',cover:'25% 50%',one8:'40% 45%',chr1:'50% 0%',chr3:'50% 6%',chr8:'50% 2%',l2d1:'50% 16%',mv3:'72% 50%',chr10:'50% 40%'};
-const op=k=>POS[k]?` style="object-position:${POS[k]}"`:'';
 const SVC=[['one1','一枚絵イラスト','背景と人物の統一感を大切に、イラスト全体のまとまりを重視しています。'],
 ['chr3','立ち絵制作','キャラクターの魅力が伝わる構図で、用途ごとの使いやすさも考えて制作します。'],
 ['mv3','MVイラスト','楽曲や求める雰囲気に合わせて、絵柄を描き分けます。'],
