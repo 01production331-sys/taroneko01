@@ -37,9 +37,11 @@ img{display:block;max-width:100%;height:auto}
 .quilt{background-color:var(--blueS);background-image:linear-gradient(45deg,transparent 48.5%,rgb(255 255 255/.7) 49.5% 50.5%,transparent 51.5%),linear-gradient(-45deg,transparent 48.5%,rgb(255 255 255/.7) 49.5% 50.5%,transparent 51.5%);background-size:46px 46px}
 :root[data-theme=dark] .quilt{background-image:linear-gradient(45deg,transparent 48.5%,rgb(255 255 255/.08) 49.5% 50.5%,transparent 51.5%),linear-gradient(-45deg,transparent 48.5%,rgb(255 255 255/.08) 49.5% 50.5%,transparent 51.5%)}
 @media(prefers-color-scheme:dark){:root:not([data-theme=light]) .quilt{background-image:linear-gradient(45deg,transparent 48.5%,rgb(255 255 255/.08) 49.5% 50.5%,transparent 51.5%),linear-gradient(-45deg,transparent 48.5%,rgb(255 255 255/.08) 49.5% 50.5%,transparent 51.5%)}}
-.scal{position:relative}
+.scal{position:sticky;top:0;z-index:10}
+html{scroll-padding-top:88px}
 .scal::after{content:"";position:absolute;left:0;right:0;bottom:-11px;height:12px;background:radial-gradient(circle at 11px 0,var(--paper) 10.5px,transparent 11px) 0 0/22px 12px repeat-x;z-index:2}
 /* nav */
+.page-tabs{display:flex;align-items:center;gap:2px}
 nav{position:sticky;top:0;z-index:20;background:var(--paper)}
 nav .wrap{display:flex;align-items:center;gap:2px;padding:6px max(5vw,16px);overflow-x:auto;scrollbar-width:none}
 nav .logo{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:26px;color:var(--wine);text-decoration:none;margin-right:auto;flex:none;padding-right:14px;line-height:1}
@@ -82,7 +84,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--wine);outline-offse
 .hero .art{width:min(100%,600px)}
 .hero .htext{max-width:640px}
 #about,#service{scroll-margin-top:16px}
-@media(max-width:700px){nav .wrap{flex-wrap:wrap;justify-content:center}nav .logo{flex-basis:100%;margin:0;padding:8px 0 0;text-align:center}nav a.t{padding-inline:8px;font-size:13px}}
+@media(max-width:700px){
+  html{scroll-padding-top:68px;scroll-padding-bottom:calc(56px + env(safe-area-inset-bottom))}
+  body{padding-bottom:calc(56px + env(safe-area-inset-bottom))}
+  nav .wrap{justify-content:center;overflow:visible}
+  nav .logo{margin:0;padding:8px 0;text-align:center}
+  .page-tabs{position:fixed;inset:auto 0 0;display:grid;grid-template-columns:.7fr 1.15fr 1.25fr 1.4fr;padding:4px 6px calc(4px + env(safe-area-inset-bottom));border-top:1px solid var(--wine);background:var(--paper)}
+  nav a.t{justify-content:center;padding:6px 2px;font-size:clamp(10px,3.1vw,13px);text-align:center}
+}
 .sec-h{text-align:center;margin-bottom:28px}
 .sec-h p{margin:6px 0 0;color:var(--sub)}
 /* works */
@@ -153,7 +162,7 @@ footer{text-align:center;font-family:"Cormorant Garamond",serif;font-style:itali
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="orn" viewBox="0 0 150 16"><path d="M0 8H58M92 8H150" stroke="currentColor" stroke-width="1"/><path d="M75 2 81 8 75 14 69 8Z" fill="currentColor"/><circle cx="63" cy="8" r="1.8" fill="currentColor"/><circle cx="87" cy="8" r="1.8" fill="currentColor"/></symbol></svg>
 <nav class="scal" aria-label="ページ"><div class="wrap">
 <a class="logo" href="#top">taroneko</a>
-<a class="t" href="#top">Top</a><a class="t" href="#about">プロフィール</a><a class="t" href="#works">作品・ご依頼</a><a class="t" href="#contact">お問い合わせ</a>
+<div class="page-tabs"><a class="t" href="#top">Top</a><a class="t" href="#about">プロフィール</a><a class="t" href="#works">作品・ご依頼</a><a class="t" href="#contact">お問い合わせ</a></div>
 </div></nav>
 
 <main>
@@ -280,7 +289,9 @@ $('#filters').addEventListener('click',e=>{
   cat=cat===button.dataset.c?'':button.dataset.c;
   shown=W.filter(work=>work.c===cat);
   $('#grid').innerHTML=shown.map(tile).join('');
-  $('#category-works').hidden=!cat;
+  const results=$('#category-works');
+  results.hidden=!cat;
+  if(cat)results.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
   for(const filter of $('#filters').children)filter.setAttribute('aria-pressed',filter.dataset.c===cat);
 });
 const SVC=[['one1','一枚絵イラスト','背景と人物の統一感を大切に、イラスト全体のまとまりを重視しています。'],
