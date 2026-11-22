@@ -71,13 +71,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--wine);outline-offse
 .ph{text-align:center}
 .ph .lead{margin:12px auto 0;max-width:36em;color:var(--ink)}
 .ph .inner{display:inline-block;background:var(--paper);padding:22px clamp(22px,4vw,48px);border:1px solid var(--rule);outline:1px solid var(--rule);outline-offset:-7px;max-width:100%}
-/* picks */
+/* social links */
+.social-links{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.social-link{display:inline-flex;flex-direction:column;align-items:center;gap:8px;color:var(--wine);text-decoration:none;font-size:14px}
+.social-icon{display:grid;place-items:center;width:48px;height:48px;border:1px solid currentColor;border-radius:50%}
+.social-link:hover .social-icon,.social-link:focus-visible .social-icon{background:var(--wine);color:var(--paper)}
+.social-icon::before{content:"";width:0;height:0;margin-left:3px;border-block:6px solid transparent;border-left:10px solid currentColor}
 .sec-h{text-align:center;margin-bottom:28px}
 .sec-h p{margin:6px 0 0;color:var(--sub)}
-.picks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
-.picks button{all:unset;cursor:pointer;display:block}
-.picks .st{transition:transform .25s}.picks button:hover .st{transform:translateY(-4px)}
-.picks img{aspect-ratio:4/5;object-fit:cover}
 /* works */
 .filters{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 6px;margin:0 0 30px}
 .filters button{min-height:44px;padding:6px 14px;border:0;border-bottom:1px solid transparent;background:none;color:var(--ink);font:500 15px "Shippori Mincho",serif;cursor:pointer}
@@ -130,7 +131,7 @@ footer{text-align:center;font-family:"Cormorant Garamond",serif;font-style:itali
 @media(max-width:900px){.svc{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){
 .hero,.about,.contact,.terms{grid-template-columns:minmax(0,1fr)}
-.hero .art{order:-1;margin-bottom:22px}.picks{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.hero .art{order:-1;margin-bottom:22px}
 .svc{grid-template-columns:minmax(0,1fr)}
 .grid{columns:2;column-gap:12px}.item{margin-bottom:16px}.item .st{padding:5px}
 .about>.st{max-width:320px;margin:0 auto}
@@ -162,8 +163,13 @@ footer{text-align:center;font-family:"Cormorant Garamond",serif;font-style:itali
 </div>
 </div></div>
 <div class="band"><div class="wrap">
-<div class="sec-h"><h2><span class="en">Selected works</span><span class="jp">ピックアップ</span></h2></div>
-<div class="picks" id="picks"></div>
+<div class="sec-h"><h2><span class="jp">SNS</span></h2></div>
+<div class="social-links">
+  <a class="social-link" href="https://youtube.com/shorts/WqG19s9AaiI">
+    <span class="social-icon" aria-hidden="true"></span>
+    <span>YouTube</span>
+  </a>
+</div>
 </div></div>
 </section>
 
@@ -268,8 +274,6 @@ $('#filters').addEventListener('click',e=>{const b=e.target.closest('button');if
 drawGrid();
 const POS={one1:'50% 8%',cover:'25% 50%',one8:'40% 45%',chr1:'50% 0%',chr3:'50% 6%',chr8:'50% 2%',l2d1:'50% 16%',mv3:'72% 50%',chr10:'50% 40%'};
 const op=k=>POS[k]?` style="object-position:${POS[k]}"`:'';
-const PICK=['one1','cover','one8','chr1'].map(k=>W.findIndex(x=>x.k===k));
-$('#picks').innerHTML=PICK.map(i=>`<button type="button" data-i="${i}" aria-label="${W[i].cap}を拡大"><span class="st"><img src="img/${W[i].k}.webp" width="${W[i].w}" height="${W[i].h}"${op(W[i].k)} alt="${W[i].cap}"></span></button>`).join('');
 const SVC=[['one1','一枚絵イラスト','背景と人物の統一感を大切に、イラスト全体のまとまりを重視しています。'],
 ['chr3','立ち絵制作','キャラクターの魅力が伝わる構図で、用途ごとの使いやすさも考えて制作します。'],
 ['mv3','MVイラスト','楽曲や求める雰囲気に合わせて、絵柄を描き分けます。'],
@@ -284,7 +288,6 @@ $('#lbcap').innerHTML=x.cap+(x.url?` ・ <a href="${x.url}">動画を見る</a>`
 const open=(arr,i,from)=>{list=arr;last=from;show(i);lb.classList.add('on');lb.querySelector('.x').focus()};
 const close=()=>{lb.classList.remove('on');last&&last.focus()};
 $('#grid').addEventListener('click',e=>{const b=e.target.closest('.item');if(b)open(shown,+b.dataset.i,b)});
-$('#picks').addEventListener('click',e=>{const b=e.target.closest('button');if(b)open(W,+b.dataset.i,b)});
 lb.querySelector('.x').addEventListener('click',close);
 lb.querySelector('.pv').addEventListener('click',()=>show(cur-1));
 lb.querySelector('.nx').addEventListener('click',()=>show(cur+1));
