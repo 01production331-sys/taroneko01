@@ -34,6 +34,7 @@ img{display:block;max-width:100%;height:auto}
 .band{padding:clamp(30px,4.5vw,64px) max(5vw,16px)}
 /* patterns */
 .stripe{background-color:var(--blueS);background-image:repeating-linear-gradient(90deg,var(--blue) 0 14px,transparent 14px 34px)}
+@media(min-width:701px){.stripe{--blue:light-dark(#cddbea,#46566c)}}
 .quilt{background-color:var(--blueS);background-image:linear-gradient(45deg,transparent 48.5%,rgb(255 255 255/.7) 49.5% 50.5%,transparent 51.5%),linear-gradient(-45deg,transparent 48.5%,rgb(255 255 255/.7) 49.5% 50.5%,transparent 51.5%);background-size:46px 46px}
 :root[data-theme=dark] .quilt{background-image:linear-gradient(45deg,transparent 48.5%,rgb(255 255 255/.08) 49.5% 50.5%,transparent 51.5%),linear-gradient(-45deg,transparent 48.5%,rgb(255 255 255/.08) 49.5% 50.5%,transparent 51.5%)}
 @media(prefers-color-scheme:dark){:root:not([data-theme=light]) .quilt{background-image:linear-gradient(45deg,transparent 48.5%,rgb(255 255 255/.08) 49.5% 50.5%,transparent 51.5%),linear-gradient(-45deg,transparent 48.5%,rgb(255 255 255/.08) 49.5% 50.5%,transparent 51.5%)}}
@@ -95,9 +96,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--wine);outline-offse
 .sec-h{text-align:center;margin-bottom:28px}
 .sec-h p{margin:6px 0 0;color:var(--sub)}
 /* works */
-.filters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 0 30px}
-.filters button{display:grid;gap:8px;text-align:center;padding:10px;border:1px solid var(--wine);border-radius:10px;background:var(--paper);color:var(--ink);font:600 15px "Shippori Mincho",serif;cursor:pointer}
-.filters button:hover,.filters button[aria-pressed=true]{color:var(--wine);outline:1px solid var(--wine)}
+.filters{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin:0 0 30px}
+.filters button{display:grid;gap:8px;text-align:center;padding:6px;border:1px solid var(--wine);border-radius:8px;background:var(--paper);color:var(--ink);font:600 13px "Shippori Mincho",serif;cursor:pointer}
+.filters button:hover{background:var(--wineS)}
+.filters button[aria-pressed=true]{color:var(--paper);background:var(--wine);outline:2px solid var(--wine);outline-offset:2px}
+.filters button[aria-pressed=true] span::before{content:"✓";margin-inline-end:.35em}
 .filters img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:6px}
 @media(max-width:700px){.filters{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
 .grid{columns:3 280px;column-gap:22px}
