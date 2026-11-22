@@ -137,7 +137,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--wine);outline-offse
 .mail{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(19px,2.4vw,23px);overflow-wrap:anywhere;margin:8px 0 0;color:var(--wine)}
 .copy{margin-top:12px;min-height:44px;padding:6px 18px;border:1px solid var(--rule);background:transparent;color:var(--ink);font:500 14px "Shippori Mincho",serif;cursor:pointer}
 /* pager */
-.pager{position:fixed;z-index:9;inset:auto clamp(14px,2vw,36px) 16px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;pointer-events:none}
+.pager{position:fixed;z-index:9;inset:auto clamp(14px,2vw,36px) 16px;display:grid;grid-template-columns:1fr 1fr;align-items:center;background:transparent;border:0;pointer-events:none}
 .pager .btn{pointer-events:auto}
 .pager #prev{justify-self:start}
 .pager #next{justify-self:end}
@@ -146,7 +146,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--wine);outline-offse
 .pager .btn{background:var(--wineS);color:var(--wine);min-width:0;min-height:44px;padding:4px 16px;border-radius:999px;font-size:13px;white-space:nowrap}
 .pager .btn:hover{background:var(--wine);color:var(--paper)}
 .pager .btn[hidden]{display:inline-flex;visibility:hidden}
-.pager span{padding:4px 12px;border:1px solid var(--wine);border-radius:999px;background:var(--paper);color:var(--sub);font-family:"Cormorant Garamond",serif;font-size:18px}
 footer{text-align:center;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:16px;color:var(--sub);padding:0 16px 30px}
 /* lightbox */
 #lb{position:fixed;inset:0;z-index:50;background:rgb(36 26 28/.9);display:none;place-items:center;padding:56px 12px 20px}
@@ -261,7 +260,7 @@ footer{text-align:center;font-family:"Cormorant Garamond",serif;font-style:itali
 </section>
 </main>
 
-<nav class="pager" aria-label="前後のページ"><a class="btn" id="prev" href="#top">← 前へ</a><span id="pos"></span><a class="btn" id="next" href="#works">次へ →</a></nav>
+<nav class="pager" aria-label="前後のページ"><a class="btn" id="prev" href="#top">← 前へ</a><a class="btn" id="next" href="#works">次へ →</a></nav>
 <footer>© taroneko</footer>
 
 <div id="lb" role="dialog" aria-modal="true" aria-label="作品の拡大表示">
@@ -332,7 +331,7 @@ const page={about:'top',service:'works'}[h]||h;
 for(const s of document.querySelectorAll('.page'))s.classList.toggle('on',s.dataset.p===page);
 for(const a of document.querySelectorAll('nav a.t'))a.toggleAttribute('aria-current',a.getAttribute('href')==='#'+(h==='service'?'works':h)),a.getAttribute('href')==='#'+(h==='service'?'works':h)&&a.setAttribute('aria-current','page');
 $('#prev').hidden=n===0;$('#next').hidden=n===P.length-1;$('#prev').href='#'+P[Math.max(0,n-1)];$('#next').href='#'+P[Math.min(P.length-1,n+1)];
-$('#pos').textContent=`${n+1} / ${P.length}`;if(h==='about'||h==='service')document.getElementById(h).scrollIntoView();else window.scrollTo(0,0)};
+if(h==='about'||h==='service')document.getElementById(h).scrollIntoView();else window.scrollTo(0,0)};
 addEventListener('hashchange',route);route();
 }
 </script>
