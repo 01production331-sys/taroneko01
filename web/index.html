@@ -76,13 +76,20 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--wine);outline-offse
 .social-link{display:inline-flex;flex-direction:column;align-items:center;gap:8px;color:var(--wine);text-decoration:none;font-size:14px}
 .social-icon{display:grid;place-items:center;width:48px;height:48px;border:1px solid currentColor;border-radius:50%}
 .social-link:hover .social-icon,.social-link:focus-visible .social-icon{background:var(--wine);color:var(--paper)}
-.social-icon::before{content:"";width:0;height:0;margin-left:3px;border-block:6px solid transparent;border-left:10px solid currentColor}
+.social-icon svg{width:24px;height:24px}
+.hero{grid-template-columns:minmax(0,1fr);justify-items:center}
+.hero .art{width:min(100%,600px)}
+.hero .htext{max-width:640px}
+#about,#service{scroll-margin-top:16px}
+@media(max-width:700px){nav .wrap{flex-wrap:wrap;justify-content:center}nav .logo{flex-basis:100%;margin:0;padding:8px 0 0;text-align:center}nav a.t{padding-inline:8px;font-size:13px}}
 .sec-h{text-align:center;margin-bottom:28px}
 .sec-h p{margin:6px 0 0;color:var(--sub)}
 /* works */
-.filters{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 6px;margin:0 0 30px}
-.filters button{min-height:44px;padding:6px 14px;border:0;border-bottom:1px solid transparent;background:none;color:var(--ink);font:500 15px "Shippori Mincho",serif;cursor:pointer}
-.filters button[aria-pressed=true]{color:var(--wine);border-bottom-color:var(--wine)}
+.filters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 0 30px}
+.filters button{display:grid;gap:8px;text-align:center;padding:10px;border:1px solid var(--wine);border-radius:10px;background:var(--paper);color:var(--ink);font:600 15px "Shippori Mincho",serif;cursor:pointer}
+.filters button:hover,.filters button[aria-pressed=true]{color:var(--wine);outline:1px solid var(--wine)}
+.filters img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:6px}
+@media(max-width:700px){.filters{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
 .grid{columns:3 280px;column-gap:22px}
 .item{break-inside:avoid;margin:0 0 24px;display:block;width:100%;text-align:center;border:0;padding:0;background:none;color:inherit;font:inherit;cursor:zoom-in}
 .item .st{padding:8px;transition:transform .25s}
@@ -108,7 +115,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--wine);outline-offse
 .about .name{font-size:44px}
 /* contact */
 .contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}
-.contact .card{text-align:center}
+.contact .card{display:flex;flex-direction:column;align-items:flex-start;text-align:left;overflow-wrap:anywhere}
+.contact .card :is(.btn,.copy){align-self:flex-start}
+.contact .card p{flex:1}
 .contact .card .btn{margin-top:16px}
 .mail{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(19px,2.4vw,23px);overflow-wrap:anywhere;margin:8px 0 0;color:var(--wine)}
 .copy{margin-top:12px;min-height:44px;padding:6px 18px;border:1px solid var(--rule);background:transparent;color:var(--ink);font:500 14px "Shippori Mincho",serif;cursor:pointer}
@@ -143,12 +152,16 @@ footer{text-align:center;font-family:"Cormorant Garamond",serif;font-style:itali
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="orn" viewBox="0 0 150 16"><path d="M0 8H58M92 8H150" stroke="currentColor" stroke-width="1"/><path d="M75 2 81 8 75 14 69 8Z" fill="currentColor"/><circle cx="63" cy="8" r="1.8" fill="currentColor"/><circle cx="87" cy="8" r="1.8" fill="currentColor"/></symbol></svg>
 <nav class="scal" aria-label="ページ"><div class="wrap">
 <a class="logo" href="#top">taroneko</a>
-<a class="t" href="#top">Top</a><a class="t" href="#works">作品</a><a class="t" href="#service">ご依頼</a><a class="t" href="#about">プロフィール</a><a class="t" href="#contact">お問い合わせ</a>
+<a class="t" href="#top">Top</a><a class="t" href="#about">プロフィール</a><a class="t" href="#works">作品・ご依頼</a><a class="t" href="#contact">お問い合わせ</a>
 </div></nav>
 
 <main>
 <section class="page" id="p-top" data-p="top">
 <div class="band stripe"><div class="wrap hero">
+<div class="art">
+<div class="st"><img src="img/orig3.webp" width="1400" height="1240" alt="taronekoのオリジナルイラスト：赤ずきん風の女の子"></div>
+<div class="st sub"><img src="img/mascot.webp" width="1400" height="788" alt="パペットがモチーフのオリジナルキャラクター"></div>
+</div>
 <div class="htext">
 <h1 class="name">taroneko</h1>
 <p class="role">イラストレーター</p>
@@ -157,55 +170,12 @@ footer{text-align:center;font-family:"Cormorant Garamond",serif;font-style:itali
 <ul class="chips"><li>一枚絵</li><li>立ち絵</li><li>MVイラスト</li><li>キャラクターデザイン</li><li>グッズ</li><li>Live2D</li></ul>
 <div class="btns"><a class="btn" href="#works">作品を見る</a><a class="btn w" href="#service">ご依頼について</a></div>
 </div>
-<div class="art">
-<div class="st"><img src="img/orig3.webp" width="1400" height="1240" alt="taronekoのオリジナルイラスト：赤ずきん風の女の子"></div>
-<div class="st sub"><img src="img/mascot.webp" width="1400" height="788" alt="パペットがモチーフのオリジナルキャラクター"></div>
-</div>
-</div></div>
-<div class="band"><div class="wrap">
-<div class="sec-h"><h2><span class="jp">SNS</span></h2></div>
-<div class="social-links">
-  <a class="social-link" href="https://youtube.com/shorts/WqG19s9AaiI">
-    <span class="social-icon" aria-hidden="true"></span>
-    <span>YouTube</span>
-  </a>
-</div>
-</div></div>
-</section>
 
-<section class="page" id="p-works" data-p="works">
-<div class="band quilt ph"><div class="wrap"><div class="inner">
-<h2><span class="en">Works</span><span class="jp">作品</span></h2>
-<p class="lead">ご依頼の雰囲気に合わせて絵柄を描き分けています。陰影や質感を重視したタッチと、アウトライン太めのタッチ（自主制作はこちら）があります。</p>
-</div></div></div>
-<div class="band"><div class="wrap">
-<div class="filters" id="filters" role="group" aria-label="カテゴリで絞り込む"></div>
-<div class="grid" id="grid"></div>
-<p class="note">画像をタップすると大きく見られます。ご依頼作品は、各ご依頼者様の権利を尊重して掲載しています。</p>
 </div></div>
-</section>
-
-<section class="page" id="p-service" data-p="service">
-<div class="band quilt ph"><div class="wrap"><div class="inner">
-<h2><span class="en">Commission</span><span class="jp">ご依頼について</span></h2>
-<p class="lead">動画サムネイルや活動用のイラストから、CDジャケット、グッズ、Vtuberモデルまで。まずはお気軽にご相談ください。</p>
-</div></div></div>
-<div class="band"><div class="wrap">
-<div class="svc" id="svc"></div>
-<div class="terms">
-<div class="card"><h3>金額の目安</h3><div class="big">15,000円<small>〜</small></div><p>ご依頼内容によって金額は変わります。お見積りの際は、内容の詳細を一度ご連絡ください。</p></div>
-<div class="card"><h3>納期</h3><div class="big">約15日<small>〜</small></div><p>やり取りの期間も含め、制作開始日から納品まで最短でも約15日ほどいただいています。スケジュールは一度ご相談ください。</p></div>
-</div>
-<div class="btns" style="margin-top:30px"><a class="btn" href="#contact">ご依頼・ご相談はこちら</a></div>
-</div></div>
-</section>
-
-<section class="page" id="p-about" data-p="about">
-<div class="band quilt ph"><div class="wrap"><div class="inner"><h2><span class="en">Profile</span><span class="jp">プロフィール</span></h2></div></div></div>
+<div id="about"><div class="band quilt ph"><div class="wrap"><div class="inner"><h2><span class="en">Profile</span><span class="jp">プロフィール</span></h2></div></div></div>
 <div class="band"><div class="wrap about">
 <div class="st"><img src="img/orig4.webp" width="908" height="908" alt="パペットのキャラクターが窓辺のソファにいるイラスト"></div>
 <div>
-<div class="name">taroneko</div>
 <svg class="orn" style="margin:12px 0 18px" aria-hidden="true"><use href="#orn"/></svg>
 <p>普段はVtuber・活動者の方々を中心に、ココナラでご依頼を受け付けています。可愛い女の子・かっこいい男の子のイラストが得意です。動画サムネイル・活動用イラスト、CDジャケットやグッズ用のイラストも制作しています。</p>
 <p>個性や感性を大切にし、自分に正直でいたい気持ちをテーマに制作しています。くっきりとした線画と色味で、イラスト全体の雰囲気をそろえることを心がけています。</p>
@@ -221,7 +191,43 @@ footer{text-align:center;font-family:"Cormorant Garamond",serif;font-style:itali
 <li>パペットがモチーフのオリジナルキャラクターを育て、グッズ化と体験型の個展を開くこと</li>
 </ul>
 </div>
+</div></div></div>
+<div class="band"><div class="wrap">
+<div class="sec-h"><h2><span class="jp">SNS・ご連絡先</span></h2></div>
+<div class="social-links">
+  <a class="social-link" href="https://www.instagram.com/nosuke_taroneko/"><span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.4 6.7h.1"/></svg></span><span>Instagram</span></a>
+  <a class="social-link" href="https://www.youtube.com/@taroneko3991"><span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></svg></span><span>YouTube</span></a>
+  <a class="social-link" href="https://coconala.com/users/1935263"><span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11h-9l-5 4v-4H4z"/><path d="M8 10h8M8 13h5"/></svg></span><span>ココナラ</span></a>
+  <a class="social-link" href="mailto:ntorawk.0405@gmail.com"><span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span><span>メール</span></a>
+</div>
 </div></div>
+</section>
+
+<section class="page" id="p-works" data-p="works">
+<div class="band quilt ph"><div class="wrap"><div class="inner">
+<h2><span class="en">Works &amp; Commission</span><span class="jp">作品・ご依頼</span></h2>
+<p class="lead">ご依頼の雰囲気に合わせて絵柄を描き分けています。陰影や質感を重視したタッチと、アウトライン太めのタッチ（自主制作はこちら）があります。</p>
+</div></div></div>
+<div class="band"><div class="wrap">
+<div class="filters" id="filters" role="group" aria-label="作品カテゴリ"></div>
+<div id="category-works" hidden><div class="grid" id="grid"></div>
+<p class="note">画像をタップすると大きく見られます。ご依頼作品は、各ご依頼者様の権利を尊重して掲載しています。</p></div>
+</div></div>
+
+<div id="service">
+<div class="band quilt ph"><div class="wrap"><div class="inner">
+<h2><span class="en">Commission</span><span class="jp">ご依頼について</span></h2>
+<p class="lead">動画サムネイルや活動用のイラストから、CDジャケット、グッズ、Vtuberモデルまで。まずはお気軽にご相談ください。</p>
+</div></div></div>
+<div class="band"><div class="wrap">
+<div class="svc" id="svc"></div>
+<div class="terms">
+<div class="card"><h3>金額の目安</h3><div class="big">15,000円<small>〜</small></div><p>ご依頼内容によって金額は変わります。お見積りの際は、内容の詳細を一度ご連絡ください。</p></div>
+<div class="card"><h3>納期</h3><div class="big">約15日<small>〜</small></div><p>やり取りの期間も含め、制作開始日から納品まで最短でも約15日ほどいただいています。スケジュールは一度ご相談ください。</p></div>
+</div>
+<div class="btns" style="margin-top:30px"><a class="btn" href="#contact">ご依頼・ご相談はこちら</a></div>
+</div></div>
+</div>
 </section>
 
 <section class="page" id="p-contact" data-p="contact">
@@ -252,7 +258,7 @@ footer{text-align:center;font-family:"Cormorant Garamond",serif;font-style:itali
 {
 const KM='https://www.youtube.com/watch?v=oCNxNFQYdyw';
 const L2D='https://youtube.com/shorts/WqG19s9AaiI';
-const CATS=[['all','すべて'],['orig','オリジナル'],['mv','MV'],['one','一枚絵'],['chr','立ち絵・キャラデザ'],['gds','グッズ・SD'],['l2d','Live2D']];
+const CATS=[['orig','オリジナル','orig3'],['mv','MV','mv3'],['one','一枚絵','one1'],['chr','立ち絵・キャラデザ','chr3'],['gds','グッズ・SD','gds3'],['l2d','Live2D','l2d1']];
 const W=[
 ['cover','orig',1400,990,'オリジナルイラスト'],['orig1','orig',870,744,'オリジナルイラスト'],['orig2','orig',1160,992,'オリジナルイラスト'],['orig3','orig',1400,1240,'オリジナルイラスト'],
 ['mv3','mv',1344,756,'方位かなめ様 歌ってみた「トウキョウ・シャンディ・ランデヴ」',KM],['mv4','mv',960,540,'方位かなめ様 歌ってみたイラスト',KM],['mv5','mv',1152,648,'方位かなめ様 歌ってみたイラスト',KM],
@@ -266,12 +272,17 @@ const W=[
 ].map(([k,c,w,h,cap,url])=>({k,c,w,h,cap,url}));
 const $=s=>document.querySelector(s);
 const tile=(x,i)=>`<button class="item" type="button" data-i="${i}"><span class="st"><img src="img/${x.k}.webp" width="${x.w}" height="${x.h}" loading="lazy" alt="${x.cap}"></span><span class="cap">${x.cap}</span></button>`;
-let cat='all',shown=W;
-const drawGrid=()=>{shown=cat==='all'?W:W.filter(x=>x.c===cat);$('#grid').innerHTML=shown.map(tile).join('');
-for(const b of $('#filters').children)b.setAttribute('aria-pressed',b.dataset.c===cat)};
-$('#filters').innerHTML=CATS.map(([c,n])=>`<button type="button" data-c="${c}">${n}</button>`).join('');
-$('#filters').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;cat=b.dataset.c;drawGrid()});
-drawGrid();
+let cat='',shown=[];
+$('#filters').innerHTML=CATS.map(([c,n,k])=>`<button type="button" data-c="${c}" aria-pressed="false" aria-controls="category-works"><img src="img/${k}.webp"${op(k)} loading="lazy" alt=""><span>${n}</span></button>`).join('');
+$('#filters').addEventListener('click',e=>{
+  const button=e.target.closest('button');
+  if(!button)return;
+  cat=cat===button.dataset.c?'':button.dataset.c;
+  shown=W.filter(work=>work.c===cat);
+  $('#grid').innerHTML=shown.map(tile).join('');
+  $('#category-works').hidden=!cat;
+  for(const filter of $('#filters').children)filter.setAttribute('aria-pressed',filter.dataset.c===cat);
+});
 const POS={one1:'50% 8%',cover:'25% 50%',one8:'40% 45%',chr1:'50% 0%',chr3:'50% 6%',chr8:'50% 2%',l2d1:'50% 16%',mv3:'72% 50%',chr10:'50% 40%'};
 const op=k=>POS[k]?` style="object-position:${POS[k]}"`:'';
 const SVC=[['one1','一枚絵イラスト','背景と人物の統一感を大切に、イラスト全体のまとまりを重視しています。'],
@@ -296,12 +307,13 @@ document.addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;i
 /* copy */
 $('#copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('#mail').textContent);$('#copy').textContent='コピーしました'}catch(_){$('#copy').textContent='長押しでコピーしてください'}});
 /* pages */
-const P=['top','works','service','about','contact'];
-const route=()=>{let h=location.hash.slice(1);if(!P.includes(h))h='top';const n=P.indexOf(h);
-for(const s of document.querySelectorAll('.page'))s.classList.toggle('on',s.dataset.p===h);
-for(const a of document.querySelectorAll('nav a.t'))a.toggleAttribute('aria-current',a.getAttribute('href')==='#'+h),a.getAttribute('href')==='#'+h&&a.setAttribute('aria-current','page');
+const P=['top','about','works','contact'];
+const route=()=>{let h=location.hash.slice(1);if(!P.includes(h)&&h!=='service')h='top';const n=P.indexOf(h==='service'?'works':h);
+const page={about:'top',service:'works'}[h]||h;
+for(const s of document.querySelectorAll('.page'))s.classList.toggle('on',s.dataset.p===page);
+for(const a of document.querySelectorAll('nav a.t'))a.toggleAttribute('aria-current',a.getAttribute('href')==='#'+(h==='service'?'works':h)),a.getAttribute('href')==='#'+(h==='service'?'works':h)&&a.setAttribute('aria-current','page');
 $('#prev').hidden=n===0;$('#next').hidden=n===P.length-1;$('#prev').href='#'+P[Math.max(0,n-1)];$('#next').href='#'+P[Math.min(P.length-1,n+1)];
-$('#pos').textContent=`${n+1} / ${P.length}`;window.scrollTo(0,0)};
+$('#pos').textContent=`${n+1} / ${P.length}`;if(h==='about'||h==='service')document.getElementById(h).scrollIntoView();else window.scrollTo(0,0)};
 addEventListener('hashchange',route);route();
 }
 </script>
