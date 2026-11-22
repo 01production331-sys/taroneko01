@@ -86,8 +86,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--wine);outline-offse
 .hero .htext{max-width:640px}
 #about,#service{scroll-margin-top:16px}
 @media(max-width:700px){
-  html{scroll-padding-top:68px;scroll-padding-bottom:calc(78px + env(safe-area-inset-bottom))}
-  body{padding-bottom:calc(78px + env(safe-area-inset-bottom))}
+  html{scroll-padding-top:68px;scroll-padding-bottom:calc(156px + env(safe-area-inset-bottom))}
+  body{padding-bottom:calc(156px + env(safe-area-inset-bottom))}
   nav .wrap{justify-content:center;overflow:visible}
   nav .logo{margin:0;padding:8px 0;text-align:center}
   .page-tabs{position:fixed;inset:auto 0 0;display:grid;grid-template-columns:.7fr 1.15fr 1.25fr 1.4fr;padding:4px 6px calc(16px + env(safe-area-inset-bottom));border-top:1px solid var(--wine);background:var(--paper)}
@@ -137,8 +137,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--wine);outline-offse
 .mail{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(19px,2.4vw,23px);overflow-wrap:anywhere;margin:8px 0 0;color:var(--wine)}
 .copy{margin-top:12px;min-height:44px;padding:6px 18px;border:1px solid var(--rule);background:transparent;color:var(--ink);font:500 14px "Shippori Mincho",serif;cursor:pointer}
 /* pager */
-.pager{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px max(5vw,16px) 40px;max-width:1140px;margin:0 auto}
-.pager .btn{background:transparent;color:var(--wine);min-width:110px}
+.pager{position:fixed;z-index:9;inset:auto auto 16px 50%;transform:translateX(-50%);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;width:min(300px,calc(100% - 28px));padding:6px 8px;border:1px solid var(--wine);border-radius:999px;background:var(--paper)}
+@media(min-width:701px){html{scroll-padding-bottom:88px}body{padding-bottom:88px}}
+@media(max-width:700px){.pager{bottom:calc(84px + env(safe-area-inset-bottom))}}
+.pager .btn{background:var(--wineS);color:var(--wine);min-width:0;min-height:44px;padding:4px 10px;border-radius:999px;font-size:13px;white-space:nowrap}
 .pager .btn:hover{background:var(--wine);color:var(--paper)}
 .pager .btn[hidden]{display:inline-flex;visibility:hidden}
 .pager span{color:var(--sub);font-family:"Cormorant Garamond",serif;font-size:18px}
@@ -256,7 +258,7 @@ footer{text-align:center;font-family:"Cormorant Garamond",serif;font-style:itali
 </section>
 </main>
 
-<div class="pager"><a class="btn" id="prev" href="#top">← 前へ</a><span id="pos"></span><a class="btn" id="next" href="#works">次へ →</a></div>
+<nav class="pager" aria-label="前後のページ"><a class="btn" id="prev" href="#top">← 前へ</a><span id="pos"></span><a class="btn" id="next" href="#works">次へ →</a></nav>
 <footer>© taroneko</footer>
 
 <div id="lb" role="dialog" aria-modal="true" aria-label="作品の拡大表示">
