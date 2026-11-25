@@ -48,6 +48,16 @@ nav .wrap{display:flex;align-items:center;gap:2px;padding:6px max(5vw,16px);over
 nav .logo{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:26px;color:var(--wine);text-decoration:none;margin-right:auto;flex:none;padding-right:14px;line-height:1}
 nav a.t{flex:none;text-decoration:none;color:var(--ink);font-size:14.5px;padding:10px 12px;min-height:44px;display:inline-flex;align-items:center;border-bottom:1px solid transparent}
 nav a.t[aria-current=page]{color:var(--wine);border-bottom-color:var(--wine)}
+@media(min-width:701px) and (hover:hover) and (pointer:fine){
+  .scal :is(.logo,.t){position:relative}
+  .scal :is(.logo,.t)::after{content:"";position:absolute;inset:auto 12px -1px;height:1px;background:var(--wine);transform:scaleX(0)}
+  .scal .logo::after{inset:auto 14px -5px 0}
+  .scal :is(.logo,.t):hover{color:var(--wine)}
+  .scal :is(.logo,.t):hover::after{transform:scaleX(1)}
+  @media(prefers-reduced-motion:no-preference){
+    .scal :is(.logo,.t)::after{transition:transform .2s ease-out}
+  }
+}
 a:focus-visible,button:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
 /* pages */
 .page{display:none}.page.on{display:block;animation:fade .4s ease-out}
@@ -86,7 +96,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--wine);outline-offse
 .hero .btns .btn:active,.hero .social-link:active .social-icon{background:var(--wine);color:var(--paper)}
 @media(prefers-reduced-motion:no-preference){
   .hero .btns .btn{transition:background .2s,color .2s,transform .12s ease-out}
-  .hero .social-icon{transition:transform .12s ease-out}
+  .hero .social-icon{transition:transform .15s ease-out}
+}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .hero .social-link:hover:not(:active) .social-icon{transform:scale(1.12)}
+  .hero .btns .btn:hover:not(:active){transform:scale(1.05)}
 }
 .social-icon svg{width:24px;height:24px}
 .hero{grid-template-columns:minmax(0,1fr);justify-items:center}
