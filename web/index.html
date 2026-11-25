@@ -162,17 +162,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--wine);outline-offse
 .mail{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(19px,2.4vw,23px);overflow-wrap:anywhere;margin:8px 0 0;color:var(--wine)}
 .copy{padding:6px 18px;border:1px solid var(--rule);background:transparent;color:var(--ink);font:500 14px "Shippori Mincho",serif;cursor:pointer}
 @media(hover:hover) and (pointer:fine){
-  .contact :is(.btn,.copy):hover{border-radius:10px}
+  :is(#service .btn,.contact .btn,.contact .copy):hover{border-radius:10px}
   .contact .copy:hover{background:var(--wineS);border-color:var(--wine);color:var(--wine)}
 }
 @media(prefers-reduced-motion:no-preference){
-  :is(.filters button,.contact .btn,.contact .copy){
+  :is(.filters button,#service .btn,.contact .btn,.contact .copy){
     transition:transform .15s ease-out,background .2s,color .2s,border-color .2s,border-radius .2s;
   }
   @media(hover:hover) and (pointer:fine){
-    :is(.filters button,.contact .btn,.contact .copy):hover{transform:translateY(-2px)}
+    :is(.filters button,#service .btn,.contact .btn,.contact .copy):hover{transform:translateY(-2px)}
   }
-  :is(.filters button,.contact .btn,.contact .copy):active{transform:translateY(1px) scale(.97)}
+  :is(.filters button,#service .btn,.contact .btn,.contact .copy):active{transform:translateY(1px) scale(.97)}
 }
 .contact .copy:active{background:var(--wineS);border-color:var(--wine);color:var(--wine)}
 /* pager */
@@ -228,7 +228,7 @@ footer{text-align:center;font-family:"Cormorant Garamond",serif;font-style:itali
   <a class="social-link" href="https://www.instagram.com/nosuke_taroneko/"><span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.4 6.7h.1"/></svg></span><span>Instagram</span></a>
   <a class="social-link" href="https://www.youtube.com/@taroneko3991"><span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></svg></span><span>YouTube</span></a>
   <a class="social-link" href="https://coconala.com/users/1935263"><span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11h-9l-5 4v-4H4z"/><path d="M8 10h8M8 13h5"/></svg></span><span>ココナラ</span></a>
-  <a class="social-link" href="mailto:ntorawk.0405@gmail.com"><span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span><span>メール</span></a>
+  <a class="social-link" href="#email"><span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span><span>メール</span></a>
 </div>
 <p class="lead">可愛い女の子・かっこいい男の子のイラストを描いています。Vtuber・活動者の方を中心に、活動用イラストやMVイラスト、グッズ用イラスト、Live2Dまで制作しています。</p>
 <ul class="chips"><li>一枚絵</li><li>立ち絵</li><li>MVイラスト</li><li>キャラクターデザイン</li><li>グッズ</li><li>Live2D</li></ul>
@@ -292,7 +292,7 @@ footer{text-align:center;font-family:"Cormorant Garamond",serif;font-style:itali
 </div></div></div>
 <div class="band"><div class="wrap contact">
 <div class="card"><h3>ココナラから依頼する</h3><p>出品中のサービスからご依頼いただけます。</p><a class="btn" href="https://coconala.com/users/1935263">ココナラを開く</a></div>
-<div class="card"><h3>メールで相談する</h3><p class="mail" id="mail">ntorawk.0405@gmail.com</p><div class="mail-actions"><a class="btn" href="mailto:ntorawk.0405@gmail.com">メールを開く</a><button class="copy" id="copy" type="button">アドレスをコピー</button></div></div>
+<div class="card" id="email"><h3>メールで相談する</h3><p class="mail" id="mail">ntorawk.0405@gmail.com</p><div class="mail-actions"><a class="btn" href="mailto:ntorawk.0405@gmail.com">メールを開く</a><button class="copy" id="copy" type="button">アドレスをコピー</button></div></div>
 <div class="card"><h3>オリジナルキャラクター</h3><p>パペットがモチーフのキャラクターを更新しています。</p><a class="btn w" href="https://charaforio.com/ja/user/taroneko_nosuke">キャラフォリオを見る</a></div>
 <div class="card"><h3>Live2D</h3><p>Live2Dモデルは、nizimaのプロフィールからご覧いただけます。</p><a class="btn w" href="https://nizima.com/Profile/26987">nizimaで見る</a></div>
 </div></div>
@@ -365,12 +365,13 @@ document.addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;i
 $('#copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('#mail').textContent);$('#copy').textContent='コピーしました'}catch(_){$('#copy').textContent='長押しでコピーしてください'}});
 /* pages */
 const P=['top','about','works','contact'];
-const route=()=>{let h=location.hash.slice(1);if(!P.includes(h)&&h!=='service')h='top';const n=P.indexOf(h==='service'?'works':h);
-const page={about:'top',service:'works'}[h]||h;
+const route=()=>{let h=location.hash.slice(1);if(!P.includes(h)&&h!=='service'&&h!=='email')h='top';
+const navPage={service:'works',email:'contact'}[h]||h;const n=P.indexOf(navPage);
+const page=h==='about'?'top':navPage;
 for(const s of document.querySelectorAll('.page'))s.classList.toggle('on',s.dataset.p===page);
-for(const a of document.querySelectorAll('nav a.t'))a.toggleAttribute('aria-current',a.getAttribute('href')==='#'+(h==='service'?'works':h)),a.getAttribute('href')==='#'+(h==='service'?'works':h)&&a.setAttribute('aria-current','page');
+for(const a of document.querySelectorAll('nav a.t'))a.toggleAttribute('aria-current',a.getAttribute('href')==='#'+navPage),a.getAttribute('href')==='#'+navPage&&a.setAttribute('aria-current','page');
 $('#prev').hidden=n===0;$('#next').hidden=n===P.length-1;$('#prev').href='#'+P[Math.max(0,n-1)];$('#next').href='#'+P[Math.min(P.length-1,n+1)];
-if(h==='about'||h==='service')document.getElementById(h).scrollIntoView();else window.scrollTo(0,0)};
+if(h==='about'||h==='service'||h==='email')document.getElementById(h).scrollIntoView();else window.scrollTo(0,0)};
 addEventListener('hashchange',route);route();
 }
 </script>
