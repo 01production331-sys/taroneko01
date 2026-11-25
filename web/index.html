@@ -141,8 +141,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--wine);outline-offse
 .terms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:28px}
 .terms .card{text-align:center;background:var(--wineS)}
 .terms .card p{color:var(--ink)}
-.big{font-family:"Shippori Mincho",serif;font-variant-numeric:lining-nums;font-weight:600;font-size:clamp(36px,5vw,50px);line-height:1.15;color:var(--wine);white-space:nowrap;margin:4px 0 8px}
-.big small{font-size:20px}
+.terms .card p span{display:block;text-wrap:balance}
+.big{font-family:"Shippori Mincho",serif;font-variant-numeric:lining-nums;font-weight:600;font-size:clamp(30px,4vw,42px);line-height:1.2;color:var(--wine);white-space:nowrap;margin:4px 0 8px}
+.big small{font-size:.45em}
 /* about */
 .about{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(24px,4vw,56px);align-items:start}
 .list{list-style:none;padding:0;margin:0 0 1em}
@@ -276,8 +277,8 @@ footer{text-align:center;font-family:"Cormorant Garamond",serif;font-style:itali
 <div class="band"><div class="wrap">
 <div class="svc" id="svc"></div>
 <div class="terms">
-<div class="card"><h3>金額の目安</h3><div class="big">15,000円<small>〜</small></div><p>ご依頼内容によって金額は変わります。お見積りの際は、内容の詳細を一度ご連絡ください。</p></div>
-<div class="card"><h3>納期</h3><div class="big">約15日<small>〜</small></div><p>やり取りの期間も含め、制作開始日から納品まで最短でも約15日ほどいただいています。スケジュールは一度ご相談ください。</p></div>
+<div class="card"><h3>金額の目安</h3><div class="big">15,000円<small>〜</small></div><p><span>ご依頼内容によって金額は変わります。</span><span>お見積りの際は、内容の詳細を一度ご連絡ください。</span></p></div>
+<div class="card"><h3>納期</h3><div class="big">約15日<small>〜</small></div><p><span>やり取りの期間も含め、制作開始日から納品まで最短でも約15日ほどいただいています。</span><span>スケジュールは一度ご相談ください。</span></p></div>
 </div>
 <div class="btns" style="margin-top:30px"><a class="btn" href="#contact">ご依頼・ご相談はこちら</a></div>
 </div></div>
