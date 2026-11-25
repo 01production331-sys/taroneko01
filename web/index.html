@@ -80,6 +80,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--wine);outline-offse
 .social-icon{display:grid;place-items:center;width:48px;height:48px;border:1px solid currentColor;border-radius:50%}
 .social-link:hover .social-icon,.social-link:focus-visible .social-icon{background:var(--wine);color:var(--paper)}
 @media(max-width:700px){.social-link{font-size:11px;gap:5px}.social-icon{width:44px;height:44px}}
+@media(prefers-reduced-motion:no-preference){
+  .hero .btns .btn:active,.hero .social-link:active .social-icon{transform:scale(1.08)}
+}
+.hero .btns .btn:active,.hero .social-link:active .social-icon{background:var(--wine);color:var(--paper)}
+@media(prefers-reduced-motion:no-preference){
+  .hero .btns .btn{transition:background .2s,color .2s,transform .12s ease-out}
+  .hero .social-icon{transition:transform .12s ease-out}
+}
 .social-icon svg{width:24px;height:24px}
 .hero{grid-template-columns:minmax(0,1fr);justify-items:center}
 .hero .art{width:min(100%,600px)}
@@ -193,7 +201,7 @@ footer{text-align:center;font-family:"Cormorant Garamond",serif;font-style:itali
 </div>
 <p class="lead">可愛い女の子・かっこいい男の子のイラストを描いています。Vtuber・活動者の方を中心に、活動用イラストやMVイラスト、グッズ用イラスト、Live2Dまで制作しています。</p>
 <ul class="chips"><li>一枚絵</li><li>立ち絵</li><li>MVイラスト</li><li>キャラクターデザイン</li><li>グッズ</li><li>Live2D</li></ul>
-<div class="btns"><a class="btn" href="#works">作品を見る</a><a class="btn w" href="#service">ご依頼について</a></div>
+<div class="btns"><a class="btn w" href="#works">作品を見る</a><a class="btn w" href="#service">ご依頼について</a></div>
 </div>
 
 </div></div>
