@@ -132,7 +132,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--wine);outline-offse
 .item{break-inside:avoid;margin:0 0 24px;display:block;width:100%;text-align:center;border:0;padding:0;background:none;color:inherit;font:inherit;cursor:zoom-in}
 .item .st{padding:8px;transition:transform .25s}
 .item:hover .st{transform:translateY(-3px)}
-.item .cap{display:block;font-family:"Shippori Mincho",serif;font-size:13.5px;color:var(--sub);padding:10px 4px 0;line-height:1.6}
 .note{font-size:13.5px;color:var(--sub);text-align:center}
 /* service */
 .svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
@@ -191,8 +190,8 @@ footer{text-align:center;font-family:"Cormorant Garamond",serif;font-style:itali
 #lb.on{display:grid}
 #lb figure{margin:0;max-width:min(1100px,100%);text-align:center}
 #lb img{max-height:calc(100dvh - 140px);width:auto;margin:0 auto;border:8px solid #fffaf1;background:#fffaf1}
-#lb figcaption{color:#f1e6da;margin-top:10px;font-family:"Shippori Mincho",serif;font-size:15px}
-#lb figcaption a{color:#f3c1c6}
+#lbvideo{color:#f1e6da;margin-top:10px;font-family:"Shippori Mincho",serif;font-size:15px}
+#lbvideo a{color:#f3c1c6}
 #lb button{position:absolute;width:46px;height:46px;border-radius:50%;border:1px solid #fffaf1;background:rgb(255 250 241/.12);color:#fffaf1;font:500 24px "Cormorant Garamond",serif;cursor:pointer}
 #lb .x{top:10px;right:12px}#lb .pv{left:12px;top:50%}#lb .nx{right:12px;top:50%}
 @media(max-width:900px){.svc{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -305,7 +304,7 @@ footer{text-align:center;font-family:"Cormorant Garamond",serif;font-style:itali
 <div id="lb" role="dialog" aria-modal="true" aria-label="作品の拡大表示">
 <button class="x" type="button" aria-label="閉じる">×</button>
 <button class="pv" type="button" aria-label="前の作品">‹</button>
-<figure><img id="lbimg" alt=""><figcaption id="lbcap"></figcaption></figure>
+<figure><img id="lbimg" alt=""><div id="lbvideo" hidden></div></figure>
 <button class="nx" type="button" aria-label="次の作品">›</button>
 </div>
 
@@ -328,7 +327,7 @@ const W=[
 ['orig4','orig',908,908,'オリジナルキャラクター（パペットがモチーフ）'],['orig5','orig',1008,1008,'オリジナルキャラクター（パペットがモチーフ）'],['mascot','orig',1400,788,'オリジナルキャラクター（パペットがモチーフ）']
 ].map(([k,c,w,h,cap,url])=>({k,c,w,h,cap,url}));
 const $=s=>document.querySelector(s);
-const tile=(x,i)=>`<button class="item" type="button" data-i="${i}"><span class="st"><img src="img/${x.k}.webp" width="${x.w}" height="${x.h}" loading="lazy" alt="${x.cap}"></span><span class="cap">${x.cap}</span></button>`;
+const tile=(x,i)=>`<button class="item" type="button" data-i="${i}"><span class="st"><img src="img/${x.k}.webp" width="${x.w}" height="${x.h}" loading="lazy" alt="${x.cap}"></span></button>`;
 let cat='',shown=[];
 $('#filters').innerHTML=CATS.map(([c,n,k])=>`<button type="button" data-c="${c}" aria-pressed="false" aria-controls="category-works"><img src="img/${k}.webp"${op(k)} loading="lazy" alt=""><span>${n}</span></button>`).join('');
 $('#filters').addEventListener('click',e=>{
@@ -352,7 +351,7 @@ $('#svc').innerHTML=SVC.map(([k,t,d])=>{const x=W.find(w=>w.k===k);return `<div 
 /* lightbox */
 const lb=$('#lb');let list=W,cur=0,last=null;
 const show=i=>{cur=(i+list.length)%list.length;const x=list[cur];$('#lbimg').src=`img/${x.k}.webp`;$('#lbimg').alt=x.cap;
-$('#lbcap').innerHTML=x.cap+(x.url?` ・ <a href="${x.url}">動画を見る</a>`:'')};
+const video=$('#lbvideo');video.hidden=!x.url;video.innerHTML=x.url?`<a href="${x.url}">動画を見る</a>`:''};
 const open=(arr,i,from)=>{list=arr;last=from;show(i);lb.classList.add('on');lb.querySelector('.x').focus()};
 const close=()=>{lb.classList.remove('on');last&&last.focus()};
 $('#grid').addEventListener('click',e=>{const b=e.target.closest('.item');if(b)open(shown,+b.dataset.i,b)});
